@@ -13,6 +13,7 @@ class Seller(Base):
     rating = Column(Integer, nullable=False)
     store_id = Column(Integer, ForeignKey('stores.store_id'))
     products = relationship('SellerProduct', backref="seller")
+    store = relationship('Store')
 
 
     def __str__(self):

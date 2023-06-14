@@ -13,7 +13,7 @@ class Product(Base):
     manufacturer_id = Column(Integer, ForeignKey('manufacturers.manufacturer_id'))
     category_id = Column(Integer, ForeignKey('categories.category_id'))
     seller_id = Column(Integer, ForeignKey('sellers.seller_id'))
-    #category = relationship('Categories',backref='product')
+    category = relationship('Categories')
     delivery = relationship('Delivery')
     manufactures = relationship("ProductManufacture", back_populates="products")
     orders = relationship("OrderItems", back_populates="products")

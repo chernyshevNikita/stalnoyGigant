@@ -11,7 +11,7 @@ class Client(Base):
     client_name = Column(Text, nullable=False)
     client_id = Column(Integer, primary_key=True)
     client_city = Column(Text, nullable=False)
-    #orders = relationship("Order")
+    orders = relationship("Order")
 
     def __str__(self):
         return f"Клиент {self.client_id}: {self.client_name} {self.client_city}"

@@ -1,23 +1,22 @@
-from database import Client,Seller,Store, create_session, global_init,Categories, Manufacture
-
+from database import Client,Seller,Store, create_session, global_init,Categories, Manufacture, Order, Product,SellerProduct
+from faker import Faker
+import random
 
 global_init("database/stgg.db")
 session = create_session()
-# создание нового студента
-#new_category = Categories(category_name="Телевизор")
-#session.add(new_category)
-new_manuf = Manufacture(manufacturer_name="Завод 1")
-session.add(new_manuf)
+fk = Faker("ru")
+fk_eng = Faker()
+#Faker.seed(200)
+
+new = SellerProduct(product_id=45,seller_id=12)
+session.add(new)
 session.commit()
-# обновить студента
-#old_student = session.query(Client).filter(Client.client_id == 1).first()
-#print(old_student)
-#old_student.client_city = 'водники'
-#session.commit()
-#print(old_student)
-# достать всех студентов
-#clients = session.query(Client).all()
-#for student in clients:
-#    print(student)
-print(new_manuf)
+print(new.products.product_name)
+
+
+
+
+
+
+
 
